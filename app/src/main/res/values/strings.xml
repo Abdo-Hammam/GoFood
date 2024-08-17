@@ -2,4 +2,13 @@
     <string name="app_name">GoFood</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enjoy_description">You will have a lot of\nfun while cooking with\n<big><b><font fgcolor="#fe8417">GoFood</font></b></big> app.</string>
+    <string name="cook_description">With the video guide, you will be\nable to learn the details of the\nrecipes better.</string>
+    <string name="discover_description">Each time you press the discover\nbutton, different recipes will\nappear on your screen.</string>
+    <string name="discover">Discover</string>
+    <string name="cook">Cook</string>
+    <string name="enjoy">Enjoy</string>
+    <string name="next_btn">Next</string>
+    <string name="finish">Finish</string>
 </resources>
+
