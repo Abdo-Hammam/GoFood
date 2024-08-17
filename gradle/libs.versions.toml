@@ -32,6 +32,10 @@ roomRuntime = "2.6.1"
 #Lottie
 lottieVersion = "6.5.0"
 
+#viewpager 2
+viewPagerVersion = "1.1.0"
+circleindicator = "2.1.6"
+
 
 
 [libraries]
@@ -72,6 +76,11 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 
 #Lottie for android
 lottie-impl = {group = "com.airbnb.android", name = "lottie" , version.ref = "lottieVersion"}
+
+# ViewPager 2
+view-pager-impl = {group = "androidx.viewpager2", name = "viewpager2" , version.ref = "viewPagerVersion"}
+circleindicator-impl = {group = "me.relex", name = "circleindicator" , version.ref = "circleindicator"}
+
 
 
 

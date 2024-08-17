@@ -77,4 +77,9 @@ dependencies {
     //Lottie Files
     implementation(libs.lottie.impl)
 
+    // viewPager 2
+    implementation(libs.view.pager.impl)
+    implementation(libs.circleindicator.impl)
+
+
 }
