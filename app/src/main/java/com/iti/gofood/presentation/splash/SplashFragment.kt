@@ -15,36 +15,26 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
 class SplashFragment : Fragment() {
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash, container, false)
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         CoroutineScope(Dispatchers.Main).launch{
             delay(2500)
             if(onBoardingFinish()){
                 startActivity(Intent(context,AuthActivity::class.java))
                 activity?.finish()
-            }else
+            }else{
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
-
+            }
         }
-
-
-
     }
 
     private fun onBoardingFinish(): Boolean {
