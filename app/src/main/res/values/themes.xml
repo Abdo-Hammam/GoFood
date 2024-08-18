@@ -5,5 +5,20 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.GoFood" parent="Base.Theme.GoFood" />
+    <style name="Theme.GoFood" parent="Base.Theme.GoFood">
+    </style>
+
+
+    <style name="Theme.MySplashScreen" parent="Theme.Material3.DayNight.NoActionBar" >
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="background">@color/white</item>
+    </style>
+
+    <style name="color_auth" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/splash_bg</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+    </style>
+
 </resources>
