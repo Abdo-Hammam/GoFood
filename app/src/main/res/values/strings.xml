@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">GoFood</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">"Hello "</string>
+
+<!--    onBoarding Screens-->
     <string name="enjoy_description">You will have a lot of\nfun while cooking with\n<big><b><font fgcolor="#fe8417">GoFood</font></b></big> app.</string>
     <string name="cook_description">With the video guide, you will be\nable to learn the details of the\nrecipes better.</string>
     <string name="discover_description">Each time you press the discover\nbutton, different recipes will\nappear on your screen.</string>
@@ -10,5 +12,16 @@
     <string name="enjoy">Enjoy</string>
     <string name="next_btn">Next</string>
     <string name="finish">Finish</string>
+
+
+<!--    login screen-->
+    <string name="dont_have_account">Don\'t have an account? <font fgcolor="#fe8417"><b>Sign up</b></font></string>
+    <string name="sign_in">Sign in</string>
+    <string name="welcome_to_gofood">Welcome to <big><b><font fgcolor="#fe8417">GoFood</font></b></big>\nAll the fun is inside, <b>login now!</b></string>
+    <string name="all_the_fun_is_inside_login_now">All the fun is inside, <b>login now!</b></string>
+    <string name="already_have_an_account_sign_in">Already have an account? <font fgcolor="#fe8417"><b>Sign in</b></font></string>
+    <string name="sign_up">Sign Up</string>
+    <string name="i_agree_to_gofood_terms">I agree to <font fgcolor="#fe8417">GoFood Terms</font></string>
+    <string name="fill_the_form">Fill the form and get unlimited\nrecipe and tips.</string>
 </resources>
 
