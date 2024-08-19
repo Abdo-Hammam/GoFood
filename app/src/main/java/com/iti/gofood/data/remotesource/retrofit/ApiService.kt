@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("random.php")
-    fun getaProduct(): Call<response>
+    fun getaFood(): Call<response>
 }
