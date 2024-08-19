@@ -23,5 +23,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="i_agree_to_gofood_terms">I agree to <font fgcolor="#fe8417">GoFood Terms</font></string>
     <string name="fill_the_form">Fill the form and get unlimited\nrecipe and tips.</string>
+    <string name="login">Login</string>
 </resources>
 

@@ -1,5 +1,6 @@
 package com.iti.gofood.presentation.authentication.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -9,9 +10,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.iti.gofood.R
+import com.iti.gofood.presentation.recipe.RecipeActivity
 
 
 class LoginFragment : Fragment() {
@@ -43,6 +46,11 @@ class LoginFragment : Fragment() {
         signSpan.setSpan(signUp,23,30, Spanned.SPAN_USER)
         signUpText.text = signSpan
         signUpText.movementMethod = LinkMovementMethod.getInstance()
+
+        view.findViewById<Button>(R.id.guest_login_btn).setOnClickListener {
+            startActivity(Intent(context, RecipeActivity::class.java))
+            activity?.finish()
+        }
 
     }
 
