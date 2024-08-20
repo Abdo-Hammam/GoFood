@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">GoFood</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">"Hello "</string>
 
 <!--    onBoarding Screens-->
     <string name="enjoy_description">You will have a lot of\nfun while cooking with\n<big><b><font fgcolor="#fe8417">GoFood</font></b></big> app.</string>
@@ -12,7 +10,6 @@
     <string name="enjoy">Enjoy</string>
     <string name="next_btn">Next</string>
     <string name="finish">Finish</string>
-
 
 <!--    login screen-->
     <string name="dont_have_account">Don\'t have an account? <font fgcolor="#fe8417"><b>Sign up</b></font></string>
