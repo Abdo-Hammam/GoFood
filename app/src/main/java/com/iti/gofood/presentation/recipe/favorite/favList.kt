@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MyViewModel : ViewModel() {
+class favList : ViewModel() {
     private val _myData = MutableLiveData<List<Item>>()
 
     fun addItemToFav(newItem: Item) {

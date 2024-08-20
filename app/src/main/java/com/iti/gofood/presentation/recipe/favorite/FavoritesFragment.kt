@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.iti.gofood.R
 
 class FavoritesFragment : Fragment() {
-    private val myViewModel: MyViewModel by activityViewModels()
+    private val favList: favList by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +28,7 @@ class FavoritesFragment : Fragment() {
         val textView: TextView = view.findViewById(R.id.myTextView)
         var numOfItems = 0
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        myViewModel.items.observe(viewLifecycleOwner) { data ->
+        favList.items.observe(viewLifecycleOwner) { data ->
             numOfItems = data.size
             recyclerView.adapter = ItemAdapter(data) // Update UI when data changes
         }
