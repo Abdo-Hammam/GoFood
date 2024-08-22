@@ -1,55 +1,48 @@
 package com.iti.gofood.presentation.authentication.login
 
-import android.content.Intent
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.method.LinkMovementMethod
-import android.text.style.ClickableSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.iti.gofood.R
-import com.iti.gofood.presentation.recipe.RecipeActivity
+import com.iti.gofood.databinding.FragmentLoginBinding
+import com.iti.gofood.presentation.authentication.viewmodel.LoginFragmentViewModel
 
 
 class LoginFragment : Fragment() {
 
 
+    private val viewModel: LoginFragmentViewModel by viewModels()
+    private lateinit var binding: FragmentLoginBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navToSignup(view)
-        }
 
-    private fun navToSignup(view: View){
 
-        val signUpText = view.findViewById<TextView>(R.id.signup_nav)
-        val signSpan = SpannableString(signUpText.text)
+        viewModel.navToSignup(view)
+        viewModel.loginAsGuest(view,activity)
+        viewModel.showHidePass(view,context)
 
-        val signUp = object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-            }
-        }
-        signSpan.setSpan(signUp,23,30, Spanned.SPAN_USER)
-        signUpText.text = signSpan
-        signUpText.movementMethod = LinkMovementMethod.getInstance()
-
-        view.findViewById<Button>(R.id.guest_login_btn).setOnClickListener {
-            startActivity(Intent(context, RecipeActivity::class.java))
-            activity?.finish()
+        view.findViewById<Button>(R.id.signin_btn).setOnClickListener {
+        val check = LoginInputsValidation(binding)
+            if(check.readyToLogin() && !check.isBlankInputs())
+                viewModel.loginToApp(view,activity) {
+                    check.correctErrors()
+                }
+            else
+                check.correctErrors()
         }
 
     }

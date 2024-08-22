@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    app:cardCornerRadius="16dp"
+    android:orientation="vertical"
+    app:circularflow_defaultRadius="@dimen/margin_medium"
+    >
+
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:lottie_autoPlay="true"
+                android:id="@+id/done_lottie"
+                app:lottie_rawRes="@raw/anim_done"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/registration_successful"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/primary_color"/>
+
+            <Button
+                android:id="@+id/login_popup_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginVertical="16dp"
+                android:backgroundTint="@color/primary_color"
+                android:paddingVertical="8dp"
+                android:layout_gravity="bottom"
+                android:text="@string/login"
+                android:textSize="16sp"/>
+
+
+
+
+
+
+</LinearLayout>
