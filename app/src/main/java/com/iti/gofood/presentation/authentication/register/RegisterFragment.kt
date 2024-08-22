@@ -30,6 +30,7 @@ class RegisterFragment : Fragment() {
 
         viewModel.navToLogin(view)
         viewModel.checkTerms(resources,binding)
+        viewModel.showHidePass(view,context)
 
         binding.signupBtn.setOnClickListener {
         val check = RegisterInputsValidation(binding)

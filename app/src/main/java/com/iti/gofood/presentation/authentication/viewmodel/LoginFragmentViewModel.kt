@@ -31,9 +31,10 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
     }
 
 
-    fun loginAsGuest(view: View, activity: FragmentActivity?) {
+    fun loginAsGuest(view: View, activity: FragmentActivity?, context: Context) {
         view.findViewById<Button>(R.id.guest_login_btn).setOnClickListener {
             view.findNavController().navigate(R.id.action_loginFragment_to_recipeActivity)
+            onLoggedIn(context,0)
             activity?.finish()
         }
     }
@@ -56,7 +57,7 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
     }
 
 
-    fun loginToApp(view: View, activity: FragmentActivity?,onFail: () -> Unit) {
+    fun loginToApp(view: View, activity: FragmentActivity?, context: Context,onFail: () -> Unit) {
         val email =
             view.findViewById<TextInputEditText>(R.id.email_signin_field)?.text.toString()
         val password =
@@ -64,15 +65,29 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
 
         viewModelScope.launch(Dispatchers.Main) {
             val isSignedUp = repo.isUserSignedUp(email, password)
+            val user = repo.getUser(email,password)
+            val userId = user.id
 
             if (isSignedUp) {
                 view.findNavController().navigate(R.id.action_loginFragment_to_recipeActivity)
                 activity?.finish()
+                onLoggedIn(context,userId)
             } else {
                 onFail()
             }
         }
     }
+
+
+    private fun onLoggedIn(context: Context,userId: Int) {
+        val sharedPref = context.getSharedPreferences("onLoggedIn", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("logged", true)
+        editor.putInt("userId", userId )
+        editor.apply()
+    }
+
+
 
     fun showHidePass(view: View, context: Context?) {
         val password = view.findViewById<TextInputEditText>(R.id.password_signin_field)

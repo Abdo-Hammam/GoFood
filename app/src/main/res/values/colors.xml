@@ -5,4 +5,7 @@
     <color name="primary_color">#FF8527</color>
     <color name="red">#FF0000</color>
     <color name="disabled">#E2DCE4</color>
+
+    <color name="box_bg">@color/white</color>
+
 </resources>

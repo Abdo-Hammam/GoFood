@@ -4,6 +4,7 @@ import android.app.Application
 import android.app.Dialog
 import android.content.Context
 import android.content.res.Resources
+import android.text.InputType
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
@@ -121,6 +122,27 @@ class RegisterFragmentViewModel(application: Application) : AndroidViewModel(app
                 binding.signupBtn.isEnabled = false
                 binding.signupBtn.setBackgroundColor(resources.getColor(R.color.disabled, null))
             }
+        }
+    }
+
+    fun showHidePass(view: View, context: Context?) {
+        val password = view.findViewById<TextInputEditText>(R.id.password_signup_field)
+        val showPass = view.findViewById<Button>(R.id.show_pass_registration)
+        showPass.setOnClickListener {
+            when (showPass.text) {
+                context?.getString(R.string.show_password) -> {
+                    password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
+                    password.setSelection(password.length())
+                    showPass.text = context?.getString(R.string.hide_password)
+                }
+
+                context?.getString(R.string.hide_password) -> {
+                    password.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
+                    password.setSelection(password.length())
+                    showPass.text = context?.getString(R.string.show_password)
+                }
+            }
+
         }
     }
 
