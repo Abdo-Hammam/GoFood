@@ -5,7 +5,7 @@
     android:innerRadiusRatio="25">
 
     <solid
-        android:color="@color/splash_bg"/>
+        android:color="@color/primary_color"/>
 
     <corners android:radius="8dp"/>
 

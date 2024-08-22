@@ -2,5 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="splash_bg">#FF8527</color>
+    <color name="primary_color">#FF8527</color>
+    <color name="red">#FF0000</color>
+    <color name="disabled">#E2DCE4</color>
 </resources>

@@ -7,32 +7,29 @@
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
     android:layout_margin="40dp"
-    android:layout_marginBottom="32dp"
+    android:layout_marginVertical="32dp"
     android:gravity="center"
     android:orientation="vertical"
     android:theme="@style/color_auth"
     tools:context=".presentation.authentication.register.RegisterFragment">
 
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollIndicators="right"
-        android:scrollbarStyle="insideOverlay"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/signup_linearlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:gravity="center"
+            android:layout_gravity="bottom"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +37,7 @@
                 android:layout_gravity="start"
                 android:letterSpacing=".02"
                 android:paddingVertical="@dimen/margin_medium"
-                android:text="Sign up today!"
+                android:text="@string/sign_up_today"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -50,14 +47,16 @@
                 android:layout_gravity="start"
                 android:layout_marginBottom="16dp"
                 android:text="@string/fill_the_form"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/first_name_container"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First Name"
+                android:hint="@string/first_name_hint"
                 android:textColorHint="#9C9C9C"
+
 
                 app:boxBackgroundColor="@color/white"
                 app:boxCornerRadiusBottomEnd="16dp"
@@ -66,11 +65,12 @@
                 app:boxCornerRadiusTopStart="16dp"
                 app:boxStrokeWidth="0dp"
 
+                app:cursorErrorColor="@color/red"
                 app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/person_24"
                 app:endIconMode="custom"
-                app:endIconTint="@color/splash_bg"
 
+                app:endIconTint="@color/primary_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -80,6 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:ellipsize="end"
+                    android:inputType="textPersonName"
                     android:singleLine="true"
                     tools:ignore="KeyboardInaccessibleWidget" />
 
@@ -87,11 +88,12 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/last_name_container"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:hint="Last Name"
+                android:hint="@string/last_name_hint"
                 android:textColorHint="#9C9C9C"
 
                 app:boxBackgroundColor="@color/white"
@@ -101,10 +103,11 @@
                 app:boxCornerRadiusTopStart="16dp"
                 app:boxStrokeWidth="0dp"
 
+                app:cursorErrorColor="@color/red"
                 app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/person_24"
                 app:endIconMode="custom"
-                app:endIconTint="@color/splash_bg"
+                app:endIconTint="@color/primary_color"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +117,7 @@
                     android:id="@+id/last_name_field"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
+                    android:inputType="textPersonName"
                     android:ellipsize="end"
                     android:singleLine="true"
                     tools:ignore="KeyboardInaccessibleWidget" />
@@ -122,11 +126,12 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_signup_container"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:hint="Email"
+                android:hint="@string/email_hint"
                 android:textColorHint="#9C9C9C"
 
                 app:boxBackgroundColor="@color/white"
@@ -136,11 +141,12 @@
                 app:boxCornerRadiusTopStart="16dp"
                 app:boxStrokeWidth="0dp"
 
+                app:cursorErrorColor="@color/red"
                 app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/email_24"
                 app:endIconMode="custom"
-                app:endIconTint="@color/splash_bg"
 
+                app:endIconTint="@color/primary_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -150,6 +156,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:ellipsize="end"
+                    android:inputType="textEmailAddress"
                     android:singleLine="true"
                     tools:ignore="KeyboardInaccessibleWidget" />
 
@@ -157,11 +164,12 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_signup_container"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:hint="Password"
+                android:hint="@string/password_hint"
                 android:textColorHint="#9C9C9C"
 
                 app:boxBackgroundColor="@color/white"
@@ -169,13 +177,22 @@
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp"
+
                 app:boxStrokeWidth="0dp"
+                app:counterEnabled="true"
+
+                app:counterMaxLength="20"
+                app:counterTextColor="@color/primary_color"
+                app:cursorErrorColor="@color/red"
 
                 app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/lock_24"
                 app:endIconMode="custom"
-                app:endIconTint="@color/splash_bg"
+                app:helperTextEnabled="true"
+                app:helperText="should contain letters and numbers"
+                app:helperTextTextColor="@color/primary_color"
 
+                app:endIconTint="@color/primary_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -185,6 +202,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:ellipsize="end"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
                     android:singleLine="true"
                     tools:ignore="KeyboardInaccessibleWidget" />
 
@@ -197,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:minHeight="0dp"
+                android:minHeight="48dp"
                 android:text="@string/i_agree_to_gofood_terms"
                 android:textColor="#807474"
                 android:theme="@style/color_auth" />
@@ -208,9 +227,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:backgroundTint="@color/splash_bg"
                 android:paddingVertical="14dp"
                 android:text="@string/sign_up"
+                android:enabled="false"
                 android:textSize="20sp"
                 app:cornerRadius="12dp" />
 
@@ -222,6 +241,8 @@
                 android:layout_marginTop="@dimen/margin_medium"
                 android:background="?android:attr/listDivider" />
 
+
+
             <TextView
                 android:id="@+id/login_nav"
                 android:layout_width="wrap_content"
@@ -229,9 +250,8 @@
                 android:layout_marginTop="@dimen/margin_medium"
                 android:layout_marginBottom="16dp"
                 android:text="@string/already_have_an_account_sign_in" />
-
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

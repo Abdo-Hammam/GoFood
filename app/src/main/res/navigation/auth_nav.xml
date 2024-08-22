@@ -18,7 +18,7 @@
             android:id="@+id/action_loginFragment_to_recipeActivity"
             app:destination="@id/recipeActivity"
             app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
