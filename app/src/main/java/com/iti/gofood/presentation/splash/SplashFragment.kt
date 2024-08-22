@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.iti.gofood.R
 import com.iti.gofood.presentation.authentication.AuthActivity
+import com.iti.gofood.presentation.recipe.RecipeActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -26,20 +27,30 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        CoroutineScope(Dispatchers.Main).launch{
+        CoroutineScope(Dispatchers.Main).launch {
             delay(2500)
-            if(onBoardingFinish()){
-                startActivity(Intent(context,AuthActivity::class.java))
+            if (onBoardingFinish() && onLoggedIn()) {
+                startActivity(Intent(context, RecipeActivity::class.java))
                 activity?.finish()
-            }else{
+            }else if(onBoardingFinish()) {
+                startActivity(Intent(context, AuthActivity::class.java))
+                activity?.finish()
+            }
+            else {
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
             }
         }
     }
 
     private fun onBoardingFinish(): Boolean {
-        val sharedPref = requireContext().getSharedPreferences("onBoarding",Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("finish",false)
+        val sharedPref = requireContext().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("finish", false)
     }
+
+    private fun onLoggedIn(): Boolean {
+        val sharedPref = requireContext().getSharedPreferences("onLoggedIn", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("logged", false)
+    }
+
 
 }

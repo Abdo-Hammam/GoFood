@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="box_bg">@null</color>
+    <color name="disabled">#2e2c32</color>
+
+</resources>
