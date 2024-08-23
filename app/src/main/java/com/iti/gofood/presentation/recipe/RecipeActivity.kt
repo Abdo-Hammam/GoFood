@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iti.gofood.R
+import com.iti.gofood.presentation.recipe.about.AboutFragment
+import com.iti.gofood.presentation.recipe.details.DetailsFragment
 import com.iti.gofood.presentation.recipe.favorite.FavoritesFragment
 import com.iti.gofood.presentation.recipe.home.HomeFragment
 import com.iti.gofood.presentation.recipe.search.SearchFragment
@@ -41,6 +43,20 @@ class RecipeActivity : AppCompatActivity() {
                 R.id.navigation_favorites -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView3, FavoritesFragment())
+                        .commit()
+                    true
+                }
+
+                R.id.navigation_details -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView3, DetailsFragment())
+                        .commit()
+                    true
+                }
+
+                R.id.navigation_about -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView3, AboutFragment())
                         .commit()
                     true
                 }

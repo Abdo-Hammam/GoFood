@@ -2,7 +2,7 @@
     <string name="app_name">GoFood</string>
     <string name="hello_blank_fragment">"Hello "</string>
 
-<!--    onBoarding Screens-->
+    <!--    onBoarding Screens-->
     <string name="enjoy_description">You will have a lot of\nfun while cooking with\n<big><b><font fgcolor="#fe8417">GoFood</font></b></big> app.</string>
     <string name="cook_description">With the video guide, you will be\nable to learn the details of the\nrecipes better.</string>
     <string name="discover_description">Each time you press the discover\nbutton, different recipes will\nappear on your screen.</string>
@@ -13,7 +13,7 @@
     <string name="finish">Finish</string>
 
 
-<!--    login screen-->
+    <!--    login screen-->
     <string name="dont_have_account">Don\'t have an account? <font fgcolor="#fe8417"><b>Sign up</b></font></string>
     <string name="sign_in">Sign in</string>
     <string name="welcome_to_gofood">Welcome to <big><b><font fgcolor="#fe8417">GoFood</font></b></big>\nAll the fun is inside, <b>login now!</b></string>
@@ -26,7 +26,7 @@
 
     <string name="hide_password">hide Password</string>
     <string name="show_password">show password</string>
-<!--    fav screen-->
+    <!--    fav screen-->
     <string name="empty_fav">You have no favorites…yet.</string>
     <string name="registration_successful">Registration successful</string>
     <string name="guest_login">GUEST LOGIN</string>

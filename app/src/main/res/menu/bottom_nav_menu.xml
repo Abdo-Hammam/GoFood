@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/circle"
@@ -14,4 +15,10 @@
         android:id="@+id/navigation_search"
         android:icon="@drawable/circle"
         android:title="Search" />
+    <item
+        android:id="@+id/navigation_details"
+        android:title="Details" />
+    <item
+        android:id="@+id/navigation_about"
+        android:title="About" />
 </menu>
