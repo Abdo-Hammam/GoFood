@@ -7,5 +7,6 @@
     <color name="disabled">#E2DCE4</color>
 
     <color name="box_bg">@color/white</color>
+    <color name="splash_bg">#FF8527</color>
 
 </resources>
