@@ -37,5 +37,11 @@
     <string name="sign_up_today">Sign up today!</string>
     <string name="first_name_hint">First Name</string>
     <string name="last_name_hint">Last Name</string>
+
+    <!--    home screen-->
+    <string name="home_title">What are you\nCoOking today?</string>
+    <string name="popular_today">Popular Today</string>
+    <string name="title">Title</string>
+    <string name="gofood">Gofood</string>
 </resources>
 
