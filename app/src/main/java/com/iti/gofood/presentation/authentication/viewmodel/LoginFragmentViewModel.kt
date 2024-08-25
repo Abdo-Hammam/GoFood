@@ -18,6 +18,8 @@ import com.google.android.material.textfield.TextInputEditText
 import com.iti.gofood.R
 import com.iti.gofood.data.localsource.user_db.database.UserDatabase
 import com.iti.gofood.data.localsource.user_db.repository.UserRepository
+import com.iti.gofood.databinding.FragmentLoginBinding
+import com.iti.gofood.presentation.authentication.login.LoginInputsValidation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -66,15 +68,24 @@ class LoginFragmentViewModel(application: Application) : AndroidViewModel(applic
         viewModelScope.launch(Dispatchers.Main) {
             val isSignedUp = repo.isUserSignedUp(email, password)
             val user = repo.getUser(email,password)
-            val userId = user.id
 
             if (isSignedUp) {
                 view.findNavController().navigate(R.id.action_loginFragment_to_recipeActivity)
                 activity?.finish()
-                onLoggedIn(context,userId)
+                onLoggedIn(context,user.id)
             } else {
                 onFail()
             }
+        }
+    }
+
+    fun clickLogin(view: View,activity: FragmentActivity?,context: Context,binding: FragmentLoginBinding) {
+        val check = LoginInputsValidation(binding)
+        view.findViewById<Button>(R.id.signin_btn).setOnClickListener {
+            if (check.readyToLogin() && !check.isBlankInputs())
+                loginToApp(view, activity, context) { check.correctErrors() }
+            else
+                check.correctErrors()
         }
     }
 
