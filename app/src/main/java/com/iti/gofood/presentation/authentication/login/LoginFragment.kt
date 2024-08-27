@@ -34,14 +34,7 @@ class LoginFragment : Fragment() {
         viewModel.navToSignup(view)
         viewModel.loginAsGuest(view, activity,requireContext())
         viewModel.showHidePass(view, context)
-
-        view.findViewById<Button>(R.id.signin_btn).setOnClickListener {
-            val check = LoginInputsValidation(binding)
-            if (check.readyToLogin() && !check.isBlankInputs())
-                viewModel.loginToApp(view, activity, requireContext()) { check.correctErrors() }
-            else
-                check.correctErrors()
-        }
+        viewModel.clickLogin(view,activity,requireContext(),binding)
 
     }
 

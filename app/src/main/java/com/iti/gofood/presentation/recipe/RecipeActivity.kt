@@ -1,17 +1,21 @@
 package com.iti.gofood.presentation.recipe
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.iti.gofood.R
 import com.iti.gofood.databinding.ActivityRecipeBinding
+import com.iti.gofood.presentation.authentication.AuthActivity
 
 class RecipeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecipeBinding
@@ -66,10 +70,19 @@ class RecipeActivity : AppCompatActivity() {
                 true
             }
             R.id.item_signOut -> {
-                Toast.makeText(this, "item two", Toast.LENGTH_SHORT).show()
+                signOut(applicationContext)
+                startActivity(Intent(applicationContext, AuthActivity::class.java))
+                this.finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun signOut(context: Context) {
+        val sharedPref = context.getSharedPreferences("onLoggedIn", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("logged", false)
+        editor.apply()
     }
 }
