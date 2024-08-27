@@ -9,11 +9,7 @@ import com.iti.gofood.databinding.ItemMealBinding
 
 class AdapterAllMeals(private var mealList: List<Meal>) : RecyclerView.Adapter<AdapterAllMeals.ViewHolder>() {
 
-    private lateinit var onClick: (String) -> Unit
-
-    fun setOnClick(onClick: (String) -> Unit) {
-        this.onClick = onClick
-    }
+    private var onItemClick: ((Meal) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemMealBinding = ItemMealBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -21,9 +17,7 @@ class AdapterAllMeals(private var mealList: List<Meal>) : RecyclerView.Adapter<A
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val meal = mealList[position]
-        holder.binding.name.text = meal.strMeal
-        Glide.with(holder.itemView.context).load(meal.strMealThumb).into(holder.binding.pic)
+        holder.bind(mealList[position])
     }
 
     override fun getItemCount(): Int {
@@ -31,12 +25,19 @@ class AdapterAllMeals(private var mealList: List<Meal>) : RecyclerView.Adapter<A
     }
 
     inner class ViewHolder(val binding: ItemMealBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
+        fun bind(recipe: Meal) {
+            binding.name.text = recipe.strMeal
+            Glide.with(binding.pic.context)
+                .load(recipe.strMealThumb)
+                .into(binding.pic)
             binding.root.setOnClickListener {
-                val id = mealList[layoutPosition].idMeal
-                onClick.invoke(id)
+                onItemClick?.invoke(recipe)
             }
         }
+    }
+
+    fun setOnItemClickListener(listener: (Meal) -> Unit) {
+        onItemClick = listener
     }
 
     fun update(newList: List<Meal>) {

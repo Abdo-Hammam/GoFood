@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:label="recipe_nav"
+        app:startDestination="@id/homeFragment">
+
+        <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.example.project_iti.presentation.ui.allMeals.AllMealsFragment"
+            android:label="Home"
+            tools:layout="@layout/fragment_home" >
+            <action
+                android:id="@+id/action_homeFragment_to_detailsFragment3"
+                app:destination="@id/detailsFragment3">
+            </action>
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </fragment>
+    <fragment
+            android:id="@+id/detailsFragment3"
+            tools:layout="@layout/fragment_details"
+            android:name="com.iti.gofood.presentation.recipe.details.DetailsFragment"
+            android:label="DetailsFragment">
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.iti.gofood.presentation.recipe.favorite.FavoritesFragment"
+        android:label="FavoritesFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.iti.gofood.presentation.recipe.search.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.iti.gofood.presentation.recipe.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+</navigation>

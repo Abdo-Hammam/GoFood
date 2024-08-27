@@ -1,13 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.recipe.details.DetailsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Meal Image -->
+    <ImageView
+        android:id="@+id/image_ViewMeal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="fitXY"
+        app:layout_constraintHeight_percent=".45"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
-</FrameLayout>
+    <!-- Meal Title -->
+    <TextView
+        android:id="@+id/text_ViewMealTitle"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:background="#C8FF9100"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/image_ViewMeal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Meal Title" />
+
+    <!-- Meal Category -->
+    <TextView
+        android:id="@+id/text_ViewMealCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/text_ViewMealTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Category: Dessert"
+        android:textStyle="bold"
+        />
+
+    <!-- Meal Area -->
+    <TextView
+        android:id="@+id/text_ViewMealArea"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/text_ViewMealCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Area: American"
+        android:textStyle="bold"/>
+
+    <!-- Meal text -->
+    <TextView
+        android:id="@+id/text_ViewInstructions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/text_ViewMealArea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Instruction: "
+        android:textStyle="bold"/>
+
+
+    <!-- Meal Instructions -->
+    <ScrollView
+        android:id="@+id/scroll_ViewInstructions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHeight_percent=".35"
+        app:layout_constraintTop_toBottomOf="@id/text_ViewInstructions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <kr.co.prnd.readmore.ReadMoreTextView
+                android:id="@+id/inst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                app:readMoreMaxLine="3"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"/>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/video_view"
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:layout_marginTop="10dp"
+                android:padding="20dp"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

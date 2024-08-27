@@ -85,5 +85,11 @@ dependencies {
     implementation(libs.view.pager.impl)
     implementation(libs.circleindicator.impl)
 
+    // youtube player
+    implementation (libs.core)
+
+    // read more
+    implementation (libs.readmore.textview)
+
 
 }

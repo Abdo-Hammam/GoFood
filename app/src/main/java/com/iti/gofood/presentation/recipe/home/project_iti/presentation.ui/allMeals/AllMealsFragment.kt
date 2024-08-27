@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.project_iti.data.Remote.Retrofit.MyRetrofit
 import com.example.project_iti.data.Remote.source.RemoteDataSourceImpl
 import com.example.project_iti.presentation.ui.adapters.AdapterAllMeals
@@ -18,7 +19,7 @@ import com.iti.gofood.databinding.FragmentHomeBinding
 
 class AllMealsFragment : Fragment() {
     private val repository by lazy { Repo(RemoteDataSourceImpl(MyRetrofit.service)) }
-    private val viewModel: AllMealsViewModel by viewModels { AllMealsViewModelFactory(repository) }
+    private val viewModel : AllMealsViewModel by viewModels(factoryProducer = { AllMealsViewModelFactory(repository) })
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val adapter: AdapterAllMeals by lazy { AdapterAllMeals(emptyList()) }
@@ -37,6 +38,9 @@ class AllMealsFragment : Fragment() {
         _binding = FragmentHomeBinding.bind(view)
         viewModel.mealList.observe(viewLifecycleOwner) {
             adapter.update(it)
+        }
+        adapter.setOnItemClickListener {
+            findNavController().navigate(AllMealsFragmentDirections.actionHomeFragmentToDetailsFragment3(it.idMeal.toInt()))
         }
         binding.view1.adapter = adapter
 
