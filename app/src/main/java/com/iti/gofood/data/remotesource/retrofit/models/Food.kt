@@ -3,6 +3,7 @@ package com.iti.gofood.data.remotesource.retrofit.models
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+
 data class response(val meals:List<Food>)
 
 @Parcelize

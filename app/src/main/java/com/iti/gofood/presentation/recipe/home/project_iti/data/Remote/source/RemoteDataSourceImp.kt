@@ -1,7 +1,9 @@
 package com.example.project_iti.data.Remote.source
 
 import com.example.project_iti.data.Remote.Retrofit.Meal
+import com.example.project_iti.data.Remote.Retrofit.MealResponse
 import com.example.project_iti.data.Remote.Retrofit.MealService
+
 
 class RemoteDataSourceImpl(private val service: MealService) : RemoteDataSource {
 
@@ -23,6 +25,10 @@ class RemoteDataSourceImpl(private val service: MealService) : RemoteDataSource 
             null
         }
     }
- }
+
+    override suspend fun getRecipeById(id: String): MealResponse {
+        return service.getRecipeById(id)
+    }
+}
 
 
