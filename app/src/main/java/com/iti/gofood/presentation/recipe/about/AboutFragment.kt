@@ -28,5 +28,11 @@ class AboutFragment : Fragment() {
         // Set dynamic content if needed
         creatorTextView.text = "Creator: Abdelrahman Gamal"
         synopsisTextView.text = "This application helps users manage their recipes and ingredients efficiently."
+
+          val buttonBack = view.findViewById<Button>(R.id.button_back)
+        buttonBack.setOnClickListener {
+            // Pop the fragment from the back stack
+            parentFragmentManager.popBackStack()
+        }
     }
 }
