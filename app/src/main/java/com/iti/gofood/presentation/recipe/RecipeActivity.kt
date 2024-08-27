@@ -65,7 +65,7 @@ class RecipeActivity : AppCompatActivity() {
                 navController.navigate(R.id.aboutFragment) // Navigate to AboutFragment
                 true
             }
-            R.id.item_settings -> {
+            R.id.item_signOut -> {
                 Toast.makeText(this, "item two", Toast.LENGTH_SHORT).show()
                 true
             }
