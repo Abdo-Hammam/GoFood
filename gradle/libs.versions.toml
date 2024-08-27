@@ -1,5 +1,6 @@
 [versions]
-agp = "8.2.2"
+agp = "8.1.2"
+core = "11.1.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -12,6 +13,7 @@ constraintlayout = "2.1.4"
 
 #glide & retrofit
 glide = "4.15.1"
+readmoreTextview = "1.0.0"
 retrofit = "2.11.0"
 okhttp = "4.9.1"
 
@@ -40,6 +42,7 @@ circleindicator = "2.1.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+core = { module = "com.pierfrancescosoffritti.androidyoutubeplayer:core", version.ref = "core" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -51,6 +54,7 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 
 # glide & retrofit
 bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+readmore-textview = { module = "kr.co.prnd:readmore-textview", version.ref = "readmoreTextview" }
 square-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 square-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
